@@ -100,7 +100,7 @@
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
         text-align: center;
-        padding: 150px 20px;
+        padding: 200px 20px;
         position: relative;
         overflow: hidden;
         margin-top: 0;
@@ -228,9 +228,9 @@
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         transition: transform 0.3s;
       }
-      .feature-card:hover {
+      /* .feature-card:hover {
         transform: translateY(-5px);
-      }
+      } */
       .feature-card i {
         font-size: 2.5rem;
         color: #0074d9;
@@ -342,10 +342,10 @@
         font-size: 0.95rem;
         color: #555;
       }
-      .card:hover {
+      /* .card:hover {
         transform: translateY(-5px);
         box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-      }
+      } */
       footer {
         background-color: #2c3e50;
         color: white;
@@ -357,29 +357,34 @@
         gap: 30px;
         margin-bottom: 40px;
       }
-      .footer-column h3 {
-        font-size: 1.2rem;
-        margin-bottom: 20px;
+      .footer-section h3,
+      .footer-section h4 {
         color: #0074d9;
+        margin-bottom: 20px;
       }
-      .footer-column ul {
+      .footer-section ul {
         list-style: none;
       }
-      .footer-column ul li {
+      .footer-section li {
         margin-bottom: 10px;
       }
-      .footer-column ul li a {
+      .footer-section a {
         color: #ecf0f1;
         text-decoration: none;
         transition: color 0.3s;
       }
-      .footer-column ul li a:hover {
+      .footer-section a:hover {
         color: #0074d9;
       }
-      .copyright {
+      .social-icons a {
+        color: white;
+        margin-right: 15px;
+        font-size: 20px;
+      }
+      .footer-bottom {
         text-align: center;
         padding-top: 20px;
-        border-top: 1px solid #3c546c;
+        border-top: 1px solid #3a506b;
         color: #bdc3c7;
         font-size: 0.9rem;
       }
@@ -651,8 +656,15 @@
     <footer>
       <div class="container">
         <div class="footer-content">
-          <div class="footer-column">
-            <h3 style="color: #0074d9">Explore</h3>
+          <div class="footer-section">
+            <h3>Best Free Keylogger</h3>
+            <p>
+              The most reliable and discreet monitoring solution for Windows and
+              Android devices.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
             <ul>
               <li><a href="index.html">Home</a></li>
               <li><a href="features.html">Features</a></li>
@@ -661,28 +673,26 @@
               <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
-          <div class="footer-column">
-            <h3 style="color: #0074d9">Support</h3>
+          <div class="footer-section">
+            <h4>Legal</h4>
             <ul>
-              <li><a href="support.html">FAQs</a></li>
-              <li><a href="support.html">Documentation</a></li>
-              <li><a href="download.html">Uninstaller</a></li>
-              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Legal Disclaimer</a></li>
             </ul>
           </div>
-          <div class="footer-column">
-            <h3 style="color: #0074d9">Blog</h3>
-            <ul>
-              <li><a href="#">Latest Posts</a></li>
-              <li><a href="#">Monitoring Tips</a></li>
-              <li><a href="#">Parental Guidance</a></li>
-              <li><a href="#">Employee Monitoring</a></li>
-            </ul>
+          <div class="footer-section">
+            <h4>Contact Us</h4>
+            <p><i class="fas fa-envelope"></i> support@bestfreekeylogger.com</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-github"></i></a>
+            </div>
           </div>
         </div>
-        <div class="copyright">
-          <p>© 2012 - 2025 Best Free Keylogger. All Rights Reserved</p>
-          <p>Privacy Policy</p>
+        <div class="footer-bottom">
+          <p>© 2023 Best Free Keylogger. All rights reserved.</p>
         </div>
       </div>
     </footer>
