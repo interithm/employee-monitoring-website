@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Monitoring - Documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .container {
+            display: flex;
+            flex: 1;
+            justify-content: center; /* Center the content horizontally */
+        }
+        
+        /* Header Styles */
+        header {
+            background: white;
+            color: #333;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: #0074d9;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #0074d9;
+        }
+        
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #0074d9;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Sidebar Styles */
+        .sidebar {
+            width: 280px;
+            background: white;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px 0;
+            height: calc(100vh - 70px);
+            position: sticky;
+            top: 70px;
+            overflow-y: auto;
+        }
+        
+        .sidebar-title {
+            padding: 0 25px 15px;
+            font-size: 1.2rem;
+            color: #0074d9;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 15px;
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+        }
+        
+        .sidebar-menu li {
+            margin-bottom: 5px;
+        }
+        
+        .sidebar-menu a {
+            display: block;
+            padding: 12px 25px;
+            color: #555;
+            text-decoration: none;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+        }
+        
+        .sidebar-menu a:hover {
+            background: #f8f9fa;
+            color: #0074d9;
+        }
+        
+        .sidebar-menu a.active {
+            background: #f0f7ff;
+            color: #0074d9;
+            border-left: 3px solid #0074d9;
+        }
+        
+        .sidebar-submenu {
+            list-style: none;
+            padding-left: 30px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .sidebar-submenu.active {
+            display: block;
+        }
+        
+        .sidebar-submenu a {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+        
+        .has-submenu {
+            position: relative;
+        }
+        
+        .has-submenu::after {
+            content: "\f107";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s;
+        }
+        
+        .has-submenu.expanded::after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+        
+        /* Main Content Styles */
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            max-width: 900px;
+            margin: auto; /* Center main content horizontally */
+        }
+        
+        .doc-section {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .doc-header {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .doc-header h1 {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .doc-header p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+        
+        .doc-body h2 {
+            font-size: 1.6rem;
+            color: #2c3e50;
+            margin: 25px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .doc-body h3 {
+            font-size: 1.3rem;
+            color: #34495e;
+            margin: 20px 0 10px;
+        }
+        
+        .doc-body p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .doc-body ul, .doc-body ol {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        
+        .doc-body li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        
+        .info-box {
+            background: #f0f7ff;
+            border-left: 4px solid #0074d9;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .warning-box {
+            background: #fff4e6;
+            border-left: 4px solid #ffa94d;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        
+        .step-card {
+            background: #f8f9fa;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            background: #0074d9;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .feature-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .feature-table th, .feature-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .feature-table th {
+            background: #f8f9fa;
+            color: #2c3e50;
+        }
+        
+        .feature-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        /* Search Box */
+        .search-box {
+            padding: 0 25px 20px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 30px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-section h3, .footer-section h4 {
+            color: #0074d9;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: #0074d9;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #3c546c;
+            color: #bdc3c7;
+            font-size: 0.9rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                padding: 20px 0;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .doc-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .doc-body h2 {
+                font-size: 1.4rem;
+            }
+            
+            .doc-body h3 {
+                font-size: 1.2rem;
+            }
+            
+            .step-card {
+                flex-direction: column;
+            }
+            
+            .step-number {
+                margin-bottom: 10px;
+            }
+            
+            .feature-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-user-shield"></i>
+                Employee Monitoring
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="download.html">Download</a></li>
+                <li><a href="documentation.html" class="active">Documentation</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" style="display: none">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="search-box">
+                <input type="text" placeholder="Search documentation...">
+            </div>
+            
+            <h3 class="sidebar-title">Documentation</h3>
+            <ul class="sidebar-menu">
+                <li><a href="#getting-started" class="active">Getting Started</a></li>
+                <li class="has-submenu">
+                    <a href="#installation">Installation Guide</a>
+                    <ul class="sidebar-submenu active">
+                        <li><a href="#windows-install">Windows Installation</a></li>
+                        <li><a href="#android-install">Android Installation</a></li>
+                        <li><a href="#mac-install">Mac Installation</a></li>
+                    </ul>
+                </li>
+                <li><a href="#configuration">Configuration</a></li>
+                <li class="has-submenu">
+                    <a href="#features">Features Guide</a>
+                    <ul class="sidebar-submenu">
+                        <li><a href="#keystroke-monitoring">Keystroke Monitoring</a></li>
+                        <li><a href="#screenshot-capture">Screenshot Capture</a></li>
+                        <li><a href="#activity-tracking">Activity Tracking</a></li>
+                    </ul>
+                </li>
+                <li><a href="#troubleshooting">Troubleshooting</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#privacy-legal">Privacy & Legal</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="doc-section" id="getting-started">
+                <div class="doc-header">
+                    <h1>Employee Monitoring Documentation</h1>
+                    <p>Complete guide to installing, configuring, and using Employee Monitoring software</p>
+                </div>
+                
+                <div class="doc-body">
+                    <h2>Getting Started</h2>
+                    <p>Employee Monitoring is a powerful software solution that allows you to monitor computer activities on Windows, Mac, and Android devices. This documentation will help you get started with installation, configuration, and usage.</p>
+                    
+                    <div class="info-box">
+                        <p><strong>Note:</strong> Before installation, ensure you have administrative privileges on the target computer and comply with all applicable laws regarding computer monitoring.</p>
+                    </div>
+                    
+                    <h3>System Requirements</h3>
+                    <p>Employee Monitoring is compatible with the following operating systems:</p>
+                    
+                    <table class="feature-table">
+                        <thead>
+                            <tr>
+                                <th>Platform</th>
+                                <th>Minimum Version</th>
+                                <th>Recommended</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Windows</td>
+                                <td>Windows 7</td>
+                                <td>Windows 10 or newer</td>
+                            </tr>
+                            <tr>
+                                <td>macOS</td>
+                                <td>OS X 10.10</td>
+                                <td>macOS 10.14 or newer</td>
+                            </tr>
+                            <tr>
+                                <td>Android</td>
+                                <td>5.0 (Lollipop)</td>
+                                <td>9.0 (Pie) or newer</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="doc-section" id="installation">
+                <div class="doc-header">
+                    <h2>Installation Guide</h2>
+                    <p>Step-by-step instructions for installing Employee Monitoring on different platforms</p>
+                </div>
+                
+                <div class="doc-body">
+                    <h3 id="windows-install">Windows Installation</h3>
+                    
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Download the Installer</h4>
+                            <p>Download the Windows installer from our website. The file will be named something like <code>EmployeeMonitoring_Setup.exe</code>.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Run the Installer</h4>
+                            <p>Right-click on the installer and select "Run as administrator" to ensure proper installation.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Follow Installation Wizard</h4>
+                            <p>The installation wizard will guide you through the process. Choose your preferred installation location and options.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Configure Settings</h4>
+                            <p>After installation, press the hotkey combination (default: Ctrl+Alt+Shift+M) to open the configuration panel and set up your monitoring preferences.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <p><strong>Important:</strong> Remember your hotkey combination and password. Without these, you won't be able to access the monitoring interface.</p>
+                    </div>
+                    
+                    <h3 id="android-install">Android Installation</h3>
+                    <p>Android installation requires physical access to the target device for a few minutes.</p>
+                    
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Enable Unknown Sources</h4>
+                            <p>Go to Settings > Security > Enable "Unknown sources" to allow installation of apps outside the Google Play Store.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Download the APK</h4>
+                            <p>Download the Employee Monitoring APK file from our website directly to the Android device.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Install the Application</h4>
+                            <p>Open the downloaded APK file and follow the installation prompts. Grant all required permissions when prompted.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Hide the App (Optional)</h4>
+                            <p>After configuration, you can hide the app icon from the app drawer for stealth monitoring.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="doc-section" id="configuration">
+                <div class="doc-header">
+                    <h2>Configuration</h2>
+                    <p>Customize Employee Monitoring to suit your specific needs</p>
+                </div>
+                
+                <div class="doc-body">
+                    <h3>Basic Configuration</h3>
+                    <p>After installation, you can configure Employee Monitoring by pressing the hotkey combination (default: Ctrl+Alt+Shift+M) and entering your password.</p>
+                    
+                    <p>Key configuration options include:</p>
+                    <ul>
+                        <li><strong>Stealth Mode:</strong> Hide the program from the task manager and program list</li>
+                        <li><strong>Monitoring Schedule:</strong> Set specific times for monitoring</li>
+                        <li><strong>Data Delivery:</strong> Configure how and when reports are delivered</li>
+                        <li><strong>Keyword Alerts:</strong> Set up alerts for specific keywords</li>
+                    </ul>
+                    
+                    <h3>Advanced Settings</h3>
+                    <p>For advanced users, Employee Monitoring provides additional configuration through its configuration file:</p>
+                    
+                    <div class="code-block">
+                        # Example configuration file<br>
+        [General]<br>
+        StartWithWindows=1<br>
+        StealthMode=1<br>
+        <br>
+        [Monitoring]<br>
+        Keylogging=1<br>
+        ScreenshotCapture=1<br>
+        ScreenshotInterval=120<br>
+        <br>
+        [Reporting]<br>
+        ReportDelivery=email<br>
+        EmailAddress=your@email.com<br>
+        ReportInterval=daily
+                    </div>
+                    
+                    <div class="info-box">
+                        <p><strong>Tip:</strong> You can access the advanced configuration file by pressing the hotkey combination and selecting "Advanced Settings" from the menu.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="doc-section" id="troubleshooting">
+                <div class="doc-header">
+                    <h2>Troubleshooting</h2>
+                    <p>Solutions to common issues with Employee Monitoring</p>
+                </div>
+                
+                <div class="doc-body">
+                    <h3>Common Issues and Solutions</h3>
+                    
+                    <h4>Software Not Starting Automatically</h4>
+                    <p>If Employee Monitoring doesn't start with Windows:</p>
+                    <ol>
+                        <li>Press the hotkey combination to open the configuration panel</li>
+                        <li>Go to the "General" tab</li>
+                        <li>Ensure "Start with Windows" is checked</li>
+                        <li>Click "Apply" and restart your computer</li>
+                    </ol>
+                    
+                    <h4>Hotkey Combination Not Working</h4>
+                    <p>If the hotkey combination doesn't open the configuration panel:</p>
+                    <ol>
+                        <li>Check if another program is using the same hotkey</li>
+                        <li>Try restarting your computer</li>
+                        <li>Reinstall Employee Monitoring if the issue persists</li>
+                    </ol>
+                    
+                    <h4>Reports Not Being Delivered</h4>
+                    <p>If you're not receiving monitoring reports:</p>
+                    <ol>
+                        <li>Check your email spam folder</li>
+                        <li>Verify your email settings in the configuration</li>
+                        <li>Ensure you have an active internet connection</li>
+                    </ol>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Employee Monitoring</h3>
+                <p>
+                    The most reliable and discreet monitoring solution for Windows and
+                    Android devices.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="download.html">Download</a></li>
+                    <li><a href="documentation.html">Documentation</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Legal Disclaimer</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-envelope"></i> support@employeemonitoring.com</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2023 Employee Monitoring. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle submenu visibility
+        document.querySelectorAll('.has-submenu').forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    this.classList.toggle('expanded');
+                    const submenu = this.querySelector('.sidebar-submenu');
+                    submenu.classList.toggle('active');
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active class in sidebar
+                    document.querySelectorAll('.sidebar-menu a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Make documentation sections highlight when scrolling
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.doc-section');
+            const navLinks = document.querySelectorAll('.sidebar-menu a');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) {
+                    currentSection = '#' + section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
