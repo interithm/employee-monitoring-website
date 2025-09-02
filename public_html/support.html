@@ -82,6 +82,64 @@
       nav a:hover::after {
         width: 100%;
       }
+      /* Footer Styles - From contact.html */
+      footer {
+        background-color: #1e293b; /* dark blue */
+        color: #fff;
+        padding: 50px 0 20px;
+      }
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-bottom: 40px;
+      }
+      .footer-section h3,
+      .footer-section h4 {
+        color: #2563eb; /* blue */
+        margin-bottom: 20px;
+      }
+      .footer-section ul {
+        list-style: none;
+      }
+      .footer-section ul li {
+        margin-bottom: 10px;
+      }
+      .footer-section ul li a {
+        color: #e5eaf2; /* pale blue-gray */
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      .footer-section ul li a:hover {
+        color: #2563eb; /* blue */
+      }
+      .social-icons a {
+        color: #fff;
+        margin-right: 15px;
+        font-size: 20px;
+        background: none;
+        width: auto;
+        height: auto;
+        border-radius: 0;
+        transition: color 0.3s;
+        display: inline-block;
+      }
+      .social-icons a:hover {
+        color: #2563eb; /* blue */
+        background: none;
+        transform: none;
+      }
+      .footer-bottom {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid #334155; /* blue-gray */
+        color: #94a3b8; /* muted blue-gray */
+        font-size: 0.9rem;
+      }
+      }
+      nav a:hover::after {
+        width: 100%;
+      }
       .download-btn {
         background-color: #0074d9;
         color: white;
@@ -752,8 +810,14 @@
     <footer>
       <div class="container">
         <div class="footer-content">
-          <div class="footer-column">
-            <h3>Explore</h3>
+          <div class="footer-section">
+            <h3>Best Free Keylogger</h3>
+            <p>
+              The most reliable and discreet monitoring solution for Windows and Android devices.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
             <ul>
               <li><a href="index.html">Home</a></li>
               <li><a href="features.html">Features</a></li>
@@ -762,17 +826,8 @@
               <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
-          <div class="footer-column">
-            <h3>Support</h3>
-            <ul>
-              <li><a href="support.html">FAQs</a></li>
-              <li><a href="support.html">Documentation</a></li>
-              <li><a href="download.html">Uninstaller</a></li>
-              <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h3>Legal</h3>
+          <div class="footer-section">
+            <h4>Legal</h4>
             <ul>
               <li><a href="#">Privacy Policy</a></li>
               <li><a href="#">Terms of Service</a></li>
@@ -780,10 +835,19 @@
               <li><a href="#">EULA</a></li>
             </ul>
           </div>
+          <div class="footer-section">
+            <h4>Contact Us</h4>
+            <p><i class="fas fa-envelope"></i> support@bestfreekeylogger.com</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
         </div>
-        <div class="copyright">
+        <div class="footer-bottom">
           <p>© 2012 - 2025 Best Free Keylogger. All Rights Reserved</p>
-          <p>Privacy Policy | Terms of Service</p>
         </div>
       </div>
     </footer>
