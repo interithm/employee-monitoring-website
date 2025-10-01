@@ -51,68 +51,7 @@
         margin-right: 10px;
         color: #0074d9;
       }
-      nav ul {
-        display: flex;
-        list-style: none;
-      }
-      nav li {
-        margin-left: 30px;
-      }
-      nav a {
-        color: #333;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s;
-        position: relative;
-      }
-      nav a:hover,
-      nav a.active {
-        color: #0074d9;
-      }
-      nav a::after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: -5px;
-        left: 0;
-        background-color: #0074d9;
-        transition: width 0.3s;
-      }
-      nav a:hover::after {
-        width: 100%;
-      }
-      /* Footer Styles - From contact.html */
-      footer {
-        background-color: #1e293b; /* dark blue */
-        color: #fff;
-        padding: 50px 0 20px;
-      }
-      .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-        margin-bottom: 40px;
-      }
-      .footer-section h3,
-      .footer-section h4 {
-        color: #2563eb; /* blue */
-        margin-bottom: 20px;
-      }
-      .footer-section ul {
-        list-style: none;
-      }
-      .footer-section ul li {
-        margin-bottom: 10px;
-      }
-      .footer-section ul li a {
-        color: #e5eaf2; /* pale blue-gray */
-        text-decoration: none;
-        transition: color 0.3s;
-      }
-      .footer-section ul li a:hover {
-        color: #2563eb; /* blue */
-      }
+     
       .social-icons a {
         color: #fff;
         margin-right: 15px;
@@ -129,17 +68,7 @@
         background: none;
         transform: none;
       }
-      .footer-bottom {
-        text-align: center;
-        padding-top: 20px;
-        border-top: 1px solid #334155; /* blue-gray */
-        color: #94a3b8; /* muted blue-gray */
-        font-size: 0.9rem;
-      }
-      }
-      nav a:hover::after {
-        width: 100%;
-      }
+     
       .download-btn {
         background-color: #0074d9;
         color: white;
@@ -419,9 +348,9 @@
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         transition: transform 0.3s;
       }
-      .doc-card:hover {
+      /* .doc-card:hover {
         transform: translateY(-5px);
-      }
+      } */
       .doc-card i {
         font-size: 2.5rem;
         color: #0074d9;
@@ -449,45 +378,6 @@
         margin-bottom: 0;
       }
       
-      /* Footer */
-      footer {
-        background-color: #2c3e50;
-        color: white;
-        padding: 50px 0 20px;
-        margin-top: 60px;
-      }
-      .footer-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-        margin-bottom: 40px;
-      }
-      .footer-column h3 {
-        font-size: 1.2rem;
-        margin-bottom: 20px;
-        color: #0074d9;
-      }
-      .footer-column ul {
-        list-style: none;
-      }
-      .footer-column ul li {
-        margin-bottom: 10px;
-      }
-      .footer-column ul li a {
-        color: #ecf0f1;
-        text-decoration: none;
-        transition: color 0.3s;
-      }
-      .footer-column ul li a:hover {
-        color: #0074d9;
-      }
-      .copyright {
-        text-align: center;
-        padding-top: 20px;
-        border-top: 1px solid #3c546c;
-        color: #bdc3c7;
-        font-size: 0.9rem;
-      }
       
       /* Responsive Styles */
       @media (max-width: 768px) {
@@ -495,14 +385,7 @@
           flex-direction: column;
           text-align: center;
         }
-        nav ul {
-          margin-top: 15px;
-          flex-wrap: wrap;
-          justify-content: center;
-        }
-        nav li {
-          margin: 5px 10px;
-        }
+       
         .support-hero h1 {
           font-size: 2.2rem;
         }
@@ -544,26 +427,19 @@
   </head>
   <body>
     <!-- Header & Navigation -->
-    <header>
-      <div class="container">
-     <div class="container header-content">
-        <div class="logo">
-            <i class="fas fa-user-shield" style="color: #0074d9"></i>
-            Employee Monitoring
-          </div>
-        <nav>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="download.html" >Download</a></li>
-            <li><a href="support.html" class="active">Support</a></li>
-            <li><a href="documentation.html">Documentation</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-      </div>
-    </header>
+ 
+
+    <div id="navbar"></div>
+
+     <script>
+    fetch("navbar.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("navbar").innerHTML = data);
+
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+  </script>
 
     <!-- Support Hero Section -->
     <section class="hero">
@@ -572,11 +448,7 @@
         <p>
           Find answers to your questions, get help with installation, and learn how to make the most of Best Free Keylogger.
         </p>
-        <!-- <div class="hero-buttons">
-          <a href="#faq" class="btn btn-primary">Browse FAQs</a>
-          <a href="#documentation" class="btn btn-secondary">View Documentation</a>
-          <a href="#contact" class="btn btn-primary">Contact Support</a>
-        </div> -->
+      
       </div>
     </section>
 
@@ -686,37 +558,37 @@
         <div class="doc-cards">
           <div class="doc-card">
             <i class="fas fa-download"></i>
-            <h3>Installation Guide</h3>
+            <h3>How to install windows keylogger</h3>
             <p>Step-by-step instructions for installing Best Free Keylogger on Windows systems.</p>
-            <a href="#">View Guide <i class="fas fa-arrow-right"></i></a>
+            <a href="support/how-to-install-windows-keylogger.html">View Guide <i class="fas fa-arrow-right"></i></a>
           </div>
           
           <div class="doc-card">
             <i class="fas fa-cog"></i>
-            <h3>Configuration Manual</h3>
+            <h3>Changing Settings</h3>
             <p>Learn how to customize settings, set up hotkeys, and configure monitoring options.</p>
-            <a href="#">View Manual <i class="fas fa-arrow-right"></i></a>
+            <a href="support//changing-setting.html">View Manual <i class="fas fa-arrow-right"></i></a>
           </div>
           
           <div class="doc-card">
             <i class="fas fa-chart-bar"></i>
-            <h3>Reporting Features</h3>
+            <h3>Setting up email Delivery</h3>
             <p>Understand how to interpret logs, view screenshots, and generate activity reports.</p>
-            <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
+            <a href="support/setting-up-email-delivery.html">Learn More <i class="fas fa-arrow-right"></i></a>
           </div>
           
           <div class="doc-card">
             <i class="fas fa-exclamation-triangle"></i>
-            <h3>Troubleshooting</h3>
+            <h3>Setting up FTP Delivery</h3>
             <p>Solutions to common problems, error messages, and performance issues.</p>
-            <a href="#">Troubleshoot <i class="fas fa-arrow-right"></i></a>
+            <a href="support/setting-up-ftp-delivery.html">Troubleshoot <i class="fas fa-arrow-right"></i></a>
           </div>
           
           <div class="doc-card">
             <i class="fas fa-shield-alt"></i>
-            <h3>Stealth Operation</h3>
+            <h3> Forgot my password, how do I reset it?</h3>
             <p>Learn how to keep the software hidden and avoid detection by users.</p>
-            <a href="#">Read Guide <i class="fas fa-arrow-right"></i></a>
+            <a href="support//forgot-my-password-how-do-i-reset-it.html">Read Guide <i class="fas fa-arrow-right"></i></a>
           </div>
           
           <div class="doc-card">
@@ -729,128 +601,9 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <!-- <section class="contact-section" id="contact">
-      <div class="container">
-        <div class="section-title">
-          <h2>Contact Support</h2>
-          <p>Can't find what you need? Our support team is here to help</p>
-        </div>
-        
-        <div class="contact-container">
-          <div class="contact-info">
-            <h3>Get in Touch</h3>
-            
-            <div class="contact-detail">
-              <i class="fas fa-envelope"></i>
-              <div>
-                <h4>Email Support</h4>
-                <p>support@bestfreekeylogger.com</p>
-                <p>Typically responds within 24 hours</p>
-              </div>
-            </div>
-            
-            <div class="contact-detail">
-              <i class="fas fa-forumbee"></i>
-              <div>
-                <h4>Community Forum</h4>
-                <p>Ask questions and share experiences with other users</p>
-                <a href="#" style="color: #0074d9;">Visit Forum</a>
-              </div>
-            </div>
-            
-            <div class="contact-detail">
-              <i class="fas fa-book"></i>
-              <div>
-                <h4>Knowledge Base</h4>
-                <p>Browse our extensive collection of articles and tutorials</p>
-                <a href="#" style="color: #0074d9;">Explore Knowledge Base</a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="contact-form">
-            <h3>Send us a Message</h3>
-            <form id="support-form">
-              <div class="form-group">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" required>
-              </div>
-              
-              <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" required>
-              </div>
-              
-              <div class="form-group">
-                <label for="subject">Subject</label>
-                <select id="subject" required>
-                  <option value="">Select a topic</option>
-                  <option value="installation">Installation Help</option>
-                  <option value="technical">Technical Issue</option>
-                  <option value="billing">Billing Question</option>
-                  <option value="feature">Feature Request</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-              
-              <div class="form-group">
-                <label for="message">Your Message</label>
-                <textarea id="message" required></textarea>
-              </div>
-              
-              <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
     <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h3>Best Free Keylogger</h3>
-            <p>
-              The most reliable and discreet monitoring solution for Windows and Android devices.
-            </p>
-          </div>
-          <div class="footer-section">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="features.html">Features</a></li>
-              <li><a href="download.html">Download</a></li>
-              <li><a href="support.html">Support</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </div>
-          <div class="footer-section">
-            <h4>Legal</h4>
-            <ul>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms of Service</a></li>
-              <li><a href="#">Legal Disclaimer</a></li>
-              <li><a href="#">EULA</a></li>
-            </ul>
-          </div>
-          <div class="footer-section">
-            <h4>Contact Us</h4>
-            <p><i class="fas fa-envelope"></i> support@bestfreekeylogger.com</p>
-            <div class="social-icons">
-              <a href="#"><i class="fab fa-facebook"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-linkedin"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>© 2012 - 2025 Best Free Keylogger. All Rights Reserved</p>
-        </div>
-      </div>
-    </footer>
+    <div id="footer"></div>
+   
 
     <script>
       // FAQ toggle functionality

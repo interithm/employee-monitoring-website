@@ -49,37 +49,7 @@
         margin-right: 10px;
         color: #2563eb; /* blue */
       }
-      nav ul {
-        display: flex;
-        list-style: none;
-      }
-      nav li {
-        margin-left: 30px;
-      }
-      nav a {
-        color: #222e3a;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s;
-        position: relative;
-      }
-      nav a:hover,
-      nav a.active {
-        color: #2563eb; /* blue */
-      }
-      nav a::after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: -5px;
-        left: 0;
-        background-color: #2563eb; /* blue */
-        transition: width 0.3s;
-      }
-      nav a:hover::after {
-        width: 100%;
-      }
+   
       .hero {
         background: linear-gradient(
           135deg,
@@ -327,14 +297,6 @@
           flex-direction: column;
           text-align: center;
         }
-        nav ul {
-          margin-top: 15px;
-          flex-wrap: wrap;
-          justify-content: center;
-        }
-        nav li {
-          margin: 5px 10px;
-        }
         .hero {
           padding: 80px 20px;
         }
@@ -409,25 +371,21 @@
     </style>
   </head>
   <body>
+
     <!-- Header/Navigation -->
-    <header>
-      <div class="container header-content">
-        <div class="logo">
-          <i class="fas fa-user-shield" style="color: #0074d9"></i>
-          Employee Monitoring
-        </div>
-        <nav>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="features.html" class="active">Features</a></li>
-            <li><a href="download.html">Download</a></li>
-            <li><a href="support.html">Support</a></li>
-            <li><a href="documentation.html">Documentation</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+
+    <div id="navbar"></div>
+
+     <script>
+    fetch("navbar.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("navbar").innerHTML = data);
+
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+  </script>
+
     <!-- Hero Section -->
     <section class="hero">
       <div class="container hero-content">
@@ -636,48 +594,8 @@
       </div>
     </section>
 
-    <footer>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h3>Best Free Keylogger</h3>
-            <p>
-              The most reliable and discreet monitoring solution for Windows and
-              Android devices.
-            </p>
-          </div>
-          <div class="footer-section">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="features.html">Features</a></li>
-              <li><a href="download.html">Download</a></li>
-              <li><a href="support.html">Support</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </div>
-          <div class="footer-section">
-            <h4>Legal</h4>
-            <ul>
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms of Service</a></li>
-              <li><a href="#">Legal Disclaimer</a></li>
-            </ul>
-          </div>
-          <div class="footer-section">
-            <h4>Contact Us</h4>
-            <p><i class="fas fa-envelope"></i> support@bestfreekeylogger.com</p>
-            <div class="social-icons">
-              <a href="#"><i class="fab fa-facebook"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>© 2023 Best Free Keylogger. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
+    <!-- Footer Section -->
+    <div id="footer"></div>
+    
   </body>
 </html>
