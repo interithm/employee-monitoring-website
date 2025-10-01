@@ -81,10 +81,14 @@
         width: 100%;
       }
       .hero {
-        background: linear-gradient(135deg, #4a6fa5 0%, #2c3e50 100%); /* blue to dark blue */
+        background: linear-gradient(
+          135deg,
+          #4a6fa5 0%,
+          #2c3e50 100%
+        ); /* blue to dark blue */
         color: #fff;
         text-align: center;
-        padding: 120px 20px;
+        padding: 100px 20px;
         position: relative;
       }
       .hero::before {
@@ -113,7 +117,7 @@
       .hero p {
         font-size: 1.3rem;
         margin: 0 auto 30px;
-        max-width: 700px;
+        max-width: 600px;
       }
       .hero-buttons {
         display: flex;
@@ -152,91 +156,129 @@
       }
       .section-title {
         text-align: center;
-        margin-bottom: 50px;
+        margin-bottom: 60px;
         font-size: 2.5rem;
         color: #1e293b; /* dark blue */
       }
+
+      /* Add consistent section styling */
+      .key-features,
+      .additional-features {
+        padding: 80px 0;
+        background-color: #f5f7fa;
+      }
+
+      .comparison {
+        padding: 80px 0;
+        background-color: #e5eaf2; /* pale blue-gray */
+      }
+
       .features-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
       }
       .feature-card {
-        background-color: #f6f8fa; /* lighter gray */
-        border-radius: 10px;
-        padding: 25px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        transition: transform 0.3s;
+        background-color: #fff;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
         text-align: center;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
-      .feature-card:hover {
-        transform: translateY(-5px);
-      }
+      /* .feature-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+      } */
       .feature-card i {
-        font-size: 2.5rem;
+        font-size: 3rem;
         color: #2563eb; /* blue */
-        margin-bottom: 20px;
+        margin-bottom: 25px;
       }
       .feature-card h3 {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
         margin-bottom: 15px;
         color: #1e293b; /* dark blue */
       }
+      .feature-card p {
+        color: #64748b;
+        line-height: 1.7;
+        flex-grow: 1;
+      }
       .comparison {
+        padding: 80px 0;
         background-color: #e5eaf2; /* pale blue-gray */
       }
       table {
         width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
         border-collapse: collapse;
         background: #fff;
-        border-radius: 10px;
+        border-radius: 12px;
         overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
       }
       th,
       td {
-        padding: 15px;
+        padding: 18px 20px;
         text-align: left;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid #e2e8f0;
       }
       th {
         background-color: #2563eb; /* blue */
         color: #fff;
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+      td {
+        font-size: 1rem;
       }
       tr:nth-child(even) {
-        background-color: #f9f9f9;
+        background-color: #f8fafc;
       }
-      .check {
-        color: #2563eb; /* blue */
-        font-weight: bold;
-      }
-      .x {
-        color: #ef4444; /* red */
-        font-weight: bold;
+      tr:hover {
+        background-color: #f1f5f9;
       }
       .testimonials {
-        background-color: #f6f8fa; /* lighter gray */
+        background-color: #f5f7fa;
         padding: 80px 0;
       }
       .testimonial-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
       }
       .testimonial {
         background-color: #fff;
-        border-radius: 10px;
-        padding: 25px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
       }
       .testimonial-text {
         font-style: italic;
-        margin-bottom: 20px;
-        color: #555;
+        margin-bottom: 25px;
+        color: #64748b;
+        font-size: 1.1rem;
+        line-height: 1.7;
+        flex-grow: 1;
       }
       .testimonial-author {
-        font-weight: bold;
+        font-weight: 600;
         color: #1e293b; /* dark blue */
+        font-size: 1rem;
       }
       footer {
         background-color: #1e293b; /* dark blue */
@@ -293,8 +335,11 @@
         nav li {
           margin: 5px 10px;
         }
+        .hero {
+          padding: 80px 20px;
+        }
         .hero h1 {
-          font-size: 2.5rem;
+          font-size: 2.2rem;
         }
         .hero p {
           font-size: 1.1rem;
@@ -308,10 +353,58 @@
           width: 100%;
           text-align: center;
         }
-        .features-grid,
+        .section-title {
+          font-size: 2rem;
+          margin-bottom: 40px;
+        }
+        .features-grid {
+          grid-template-columns: 1fr;
+          gap: 25px;
+        }
         .testimonial-grid {
           grid-template-columns: 1fr;
+          gap: 25px;
         }
+        .key-features,
+        .additional-features,
+        .comparison,
+        .testimonials {
+          padding: 60px 0;
+        }
+        th,
+        td {
+          padding: 12px 15px;
+          font-size: 0.9rem;
+        }
+        .image-showcase {
+          padding: 40px 0;
+        }
+        .image-showcase img {
+          margin: 0 10px;
+          border-radius: 8px;
+        }
+        
+        /* Add responsive styles for additional features section */
+        .additional-features .container > div:first-of-type {
+          grid-template-columns: 1fr !important;
+          gap: 40px !important;
+        }
+      }
+
+      /* Add image section styling */
+      .image-showcase {
+        padding: 60px 0;
+        background-color: #fff;
+        text-align: center;
+      }
+
+      .image-showcase img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        margin: 0 auto;
+        display: block;
       }
     </style>
   </head>
@@ -319,10 +412,10 @@
     <!-- Header/Navigation -->
     <header>
       <div class="container header-content">
-         <div class="logo">
-            <i class="fas fa-user-shield" style="color: #0074d9"></i>
-            Employee Monitoring
-          </div>
+        <div class="logo">
+          <i class="fas fa-user-shield" style="color: #0074d9"></i>
+          Employee Monitoring
+        </div>
         <nav>
           <ul>
             <li><a href="index.html">Home</a></li>
@@ -330,7 +423,7 @@
             <li><a href="download.html">Download</a></li>
             <li><a href="support.html">Support</a></li>
             <li><a href="documentation.html">Documentation</a></li>
-             <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -338,10 +431,11 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="container hero-content">
-        <h1>Advanced Monitoring Features</h1>
+        <h1>#1 Monitoring software for windows</h1>
         <p>
-          Discover the powerful capabilities of our keylogger software designed
-          for comprehensive computer monitoring.
+          Windows Keylogger is the best keylogger software which reports you
+          about the activities, your children and employees do, when they are
+          using computer and internet.
         </p>
         <div class="hero-buttons">
           <a href="#" class="btn btn-primary">Download Now</a>
@@ -349,62 +443,136 @@
         </div>
       </div>
     </section>
-    <!-- Key Features Section -->
-    <section class="key-features">
+
+    <!-- Image Showcase Section -->
+    <section class="image-showcase">
       <div class="container">
-        <h2 class="section-title">Key Features</h2>
+        <img
+          src="images/Windows Keylogger.png"
+          alt="Windows Keylogger Software Interface"
+        />
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" style="padding: 80px 0; background-color: #fff;">
+      <div class="container">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+          <h2 class="section-title">#1 Monitoring Software for Windows</h2>
+          <p style="font-size: 1.1rem; color: #64748b; margin-bottom: 40px;">
+            Among monitoring software which can be easily installed and can be used
+            without difficulty, Windows Keylogger is the number one. Other monitoring
+            software perform slowly though they use a lot of resources, but Windows
+            Keylogger which is created to support with Windows Operating system
+            performs efficiently.
+          </p>
+          
+          <h2 style="font-size: 2rem; color: #1e293b; margin: 40px 0 20px;">Your Privacy?</h2>
+          <p style="font-size: 1.1rem; color: #64748b;">
+            Windows Keylogger never collects, stores or transmits any kind of personal
+            information and all data will be locally stored. Logs will be delivered only
+            through e-mail or FTP servers which you provide.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Windows Keylogger Section -->
+    <section class="why-section" style="padding: 80px 0; background-color: #f5f7fa;">
+      <div class="container">
+        <h2 class="section-title">Why Windows Keylogger</h2>
         <div class="features-grid">
           <div class="feature-card">
-            <i class="fas fa-keyboard"></i>
-            <h3>Keystroke Logging</h3>
+            <i class="fas fa-eye"></i>
+            <h3>Monitor Everything</h3>
             <p>
-              Records all keyboard input, including special keys, shortcuts, and
-              typed conversations in any application.
+              Windows Keylogger has the ability to record all keystrokes in the computer.
+              All data which is typed in internet, e-mail chat applications will be
+              recorded by Windows Keylogger. And also it is capable to record the actions
+              you have done, such as, the applications that you used, copy-paste actions
+              (clipboard monitoring), and all internet activities (visited websites).
             </p>
           </div>
           <div class="feature-card">
-            <i class="fas fa-camera"></i>
-            <h3>Screenshot Capture</h3>
+            <i class="fas fa-ghost"></i>
+            <h3>100% Invisible</h3>
             <p>
-              Takes periodic screenshots based on time intervals or specific
-              triggers like keyword usage.
+              Windows Keylogger works completely invisible. It cannot be found from anywhere as,
+              Windows Start menu, uninstall, Startup or Task manager. Only the person who
+              installed this software in the computer, can use it.
             </p>
           </div>
           <div class="feature-card">
-            <i class="fas fa-window-restore"></i>
-            <h3>Application Monitoring</h3>
+            <i class="fas fa-desktop"></i>
+            <h3>Screenshots</h3>
             <p>
-              Tracks which applications are used, when they're launched, and how
-              much time is spent in each.
+              Can see every activity done by the computer through screenshots facility in the software.
+              Because of the unique technology which is in Windows Keylogger can quickly watch these screenshots.
             </p>
           </div>
           <div class="feature-card">
-            <i class="fas fa-clock"></i>
-            <h3>Activity Timeline</h3>
+            <i class="fas fa-share-alt"></i>
+            <h3>Multiple Log Delivery Options</h3>
             <p>
-              Provides a detailed timeline of all computer activities for easy
-              review and analysis.
-            </p>
-          </div>
-          <div class="feature-card">
-            <i class="fas fa-user-secret"></i>
-            <h3>Stealth Operation</h3>
-            <p>
-              Runs completely invisibly in the background with no icons, menus,
-              or indications of its presence.
-            </p>
-          </div>
-          <div class="feature-card">
-            <i class="fas fa-cloud-upload-alt"></i>
-            <h3>Remote Monitoring</h3>
-            <p>
-              Access logs remotely via email reports or through a secure online
-              control panel.
+              Using multiple delivery options provided by Windows Keylogger, you can easily view logs
+              from any other computer. Windows Keylogger is capable to deliver logs automatically
+              through E-mail and FTP, without any interruption.
             </p>
           </div>
         </div>
       </div>
     </section>
+
+   
+    <!-- Unique Features Section -->
+    <section class="additional-features" style="padding: 80px 0; background-color: #fff;">
+      <div class="container">
+        <h2 class="section-title">Unique Features</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1200px; margin: 0 auto;">
+          <!-- Left side - Features List -->
+          <div>
+            <ul style="list-style: none; padding: 0;">
+              <li style="margin-bottom: 20px; padding: 20px; background-color: #f8fafc; border-radius: 8px; border-left: 4px solid #2563eb;">
+                <i class="fas fa-book-open" style="color: #2563eb; margin-right: 10px;"></i>
+                You can easily read keystrokes with "Easy Read" feature, a unique facility provided by Windows Keylogger.
+              </li>
+              <li style="margin-bottom: 20px; padding: 20px; background-color: #f8fafc; border-radius: 8px; border-left: 4px solid #2563eb;">
+                <i class="fas fa-users" style="color: #2563eb; margin-right: 10px;"></i>
+                It can be configured to monitor selected users and to monitor only in selected applications.
+              </li>
+              <li style="margin-bottom: 20px; padding: 20px; background-color: #f8fafc; border-radius: 8px; border-left: 4px solid #2563eb;">
+                <i class="fas fa-search" style="color: #2563eb; margin-right: 10px;"></i>
+                You can filter logs that you need, by advanced search.
+              </li>
+              <li style="margin-bottom: 0; padding: 20px; background-color: #f8fafc; border-radius: 8px; border-left: 4px solid #2563eb;">
+                <i class="fas fa-calendar-times" style="color: #2563eb; margin-right: 10px;"></i>
+                It can be configured to uninstall automatically, on a previously selected date.
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Right side - Image -->
+          <div style="text-align: center;">
+            <img 
+              src="images/Easy-Read.png" 
+              alt="Easy Read Feature Interface"
+              style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);"
+            />
+          </div>
+        </div>
+      </div>
+      
+      <!-- Add responsive styles -->
+      <style>
+        @media (max-width: 768px) {
+          .additional-features .container > div:first-of-type {
+            grid-template-columns: 1fr !important;
+            gap: 40px !important;
+          }
+        }
+      </style>
+    </section>
+
     <!-- Comparison Section -->
     <section class="comparison">
       <div class="container">
@@ -467,77 +635,7 @@
         </table>
       </div>
     </section>
-    <!-- Additional Features Section -->
-    <section class="additional-features">
-      <div class="container">
-        <h2 class="section-title">Additional Capabilities</h2>
-        <div class="features-grid">
-          <div class="feature-card">
-            <i class="fas fa-shield-alt"></i>
-            <h3>Password Protection</h3>
-            <p>
-              Secure access to the software with a master password to prevent
-              unauthorized configuration changes.
-            </p>
-          </div>
-          <div class="feature-card">
-            <i class="fas fa-filter"></i>
-            <h3>Keyword Alerts</h3>
-            <p>
-              Receive immediate notifications when specific keywords are typed
-              on the monitored computer.
-            </p>
-          </div>
-          <div class="feature-card">
-            <i class="fas fa-history"></i>
-            <h3>Usage History</h3>
-            <p>
-              View detailed reports of computer usage patterns, including active
-              times and duration.
-            </p>
-          </div>
-          <div class="feature-card">
-            <i class="fas fa-magic"></i>
-            <h3>Easy Installation</h3>
-            <p>
-              Simple setup process that takes just minutes to configure and
-              begin monitoring.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-      <div class="container">
-        <h2 class="section-title">What Our Users Say</h2>
-        <div class="testimonial-grid">
-          <div class="testimonial">
-            <p class="testimonial-text">
-              "This keylogger helped me ensure my children's online safety. I
-              can monitor their activities without being overbearing."
-            </p>
-            <p class="testimonial-author">- Sarah J., Parent</p>
-          </div>
-          <div class="testimonial">
-            <p class="testimonial-text">
-              "As a small business owner, I needed to ensure my employees were
-              using company resources responsibly. This software provided the
-              insights I needed."
-            </p>
-            <p class="testimonial-author">- Michael T., Business Owner</p>
-          </div>
-          <div class="testimonial">
-            <p class="testimonial-text">
-              "The stealth feature works perfectly. The software is completely
-              invisible yet provides comprehensive monitoring capabilities."
-            </p>
-            <p class="testimonial-author">- David L., IT Professional</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Footer -->
+
     <footer>
       <div class="container">
         <div class="footer-content">
@@ -581,7 +679,5 @@
         </div>
       </div>
     </footer>
-  </body>
-</html>
   </body>
 </html>

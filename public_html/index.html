@@ -113,14 +113,7 @@
         position: relative;
         z-index: 2;
       }
-      .hero-image {
-        flex: 1;
-        position: relative;
-        z-index: 2;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+      
       .dashboard-container {
         background: rgba(255, 255, 255, 0.1);
         border-radius: 12px;
@@ -345,10 +338,185 @@
         }
       }
 
+      /* Slideshow Styles */
+      .slideshow-section {
+        padding: 80px 0;
+        background-color: #f5f7fa;
+      }
+
+      .slideshow-wrapper {
+        margin-top: 0;
+        animation: fadeInUp 1s ease;
+      }
+
+      .slideshow-container {
+        position: relative;
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+        background: #f5f7fa;
+        border-radius: 16px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+      }
+
+      .slide {
+        display: none;
+        padding: 40px;
+        transition: opacity 0.6s ease-in-out;
+      }
+
+      .slide.active {
+        display: block;
+        animation: fadeIn 0.8s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+      }
+
+      .slide-content {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 40px;
+      }
+
+      .slide img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        border-radius: 12px;
+        background: #f7f7f7;
+        padding: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .slide h2 {
+        margin: 0 0 10px;
+        color: #2c3e50;
+        font-size: 1.5rem;
+      }
+
+      .slide p {
+        margin: 5px 0;
+        color: #555;
+        line-height: 1.6;
+        font-size: 1rem;
+      }
+
+      .slide ul {
+        margin: 0;
+        padding-left: 20px;
+        color: #555;
+      }
+
+      .slide li {
+        margin: 8px 0;
+        line-height: 1.6;
+        font-size: 1rem;
+      }
+
+      .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 40px;
+        font-weight: bold;
+        color: #444;
+        cursor: pointer;
+        user-select: none;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background 0.3s, transform 0.2s;
+        z-index: 10;
+      }
+
+      .arrow:hover {
+        background: #0074d9;
+        color: #fff;
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      .arrow.left {
+        left: 15px;
+      }
+
+      .arrow.right {
+        right: 15px;
+      }
+
+      /* Slideshow dots indicator */
+      .dots-container {
+        text-align: center;
+        padding: 20px 0;
+        background: #f5f7fa;
+      }
+
+      .dot {
+        height: 12px;
+        width: 12px;
+        margin: 0 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .dot.active,
+      .dot:hover {
+        background-color: #0074d9;
+      }
+
+      /* Responsive adjustments for slideshow */
+      @media (max-width: 768px) {
+        .slideshow-container {
+          max-width: 95%;
+        }
+        
+        .slide {
+          padding: 30px 20px;
+        }
+        
+        .slide-content {
+          flex-direction: column;
+          gap: 25px;
+          text-align: left;
+        }
+        
+        .slide img {
+          width: 80px;
+          height: 80px;
+          margin: 0 auto;
+        }
+        
+        .arrow {
+          font-size: 30px;
+          width: 40px;
+          height: 40px;
+        }
+
+        .arrow.left {
+          left: 10px;
+        }
+
+        .arrow.right {
+          right: 10px;
+        }
+      }
+
       /* Rest of the styles for other sections */
       .features {
         padding: 80px 0;
-        background-color: white;
+        background-color: #f5f7fa;
       }
       .section-title {
         text-align: center;
@@ -370,15 +538,15 @@
         gap: 30px;
       }
       .feature-card {
-        background-color: #f8f9fa;
+        background-color: #f5f7fa;
         border-radius: 10px;
         padding: 25px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         transition: transform 0.3s;
       }
-      .feature-card:hover {
+      /* .feature-card:hover {
         transform: translateY(-5px);
-      }
+      } */
       .feature-card i {
         font-size: 2.5rem;
         color: #0074d9;
@@ -388,6 +556,12 @@
         font-size: 1.3rem;
         margin-bottom: 15px;
         color: #2c3e50;
+      }
+      .feature-card img {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 20px;
+        object-fit: contain;
       }
       .testimonials {
         padding: 80px 0;
@@ -399,7 +573,7 @@
         gap: 30px;
       }
       .testimonial-card {
-        background-color: white;
+        background-color: #f5f7fa;
         border-radius: 10px;
         padding: 25px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
@@ -414,11 +588,12 @@
         align-items: center;
       }
       .testimonial-card .user img {
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
         border-radius: 50%;
         margin-right: 15px;
         object-fit: cover;
+        border: 3px solid #f0f2f5;
       }
       .testimonial-card .user-info h4 {
         color: #2c3e50;
@@ -430,7 +605,7 @@
       }
       .faq {
         padding: 80px 0;
-        background-color: white;
+        background-color: #f5f7fa;
       }
       .faq-item {
         margin-bottom: 20px;
@@ -440,7 +615,7 @@
       }
       .faq-question {
         padding: 20px;
-        background-color: #f8f9fa;
+        background-color: #f5f7fa;
         cursor: pointer;
         display: flex;
         justify-content: space-between;
@@ -457,14 +632,14 @@
         padding: 20px;
         max-height: 200px;
       }
-      .image-cards {
+      /* .image-cards {
         padding: 3rem 0;
         background: #f9f9f9;
       }
       .image-cards .section-title {
         text-align: center;
         margin-bottom: 2rem;
-      }
+      } */
       .cards-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -611,7 +786,7 @@
         <nav>
           <div class="logo">
             <i class="fas fa-user-shield" style="color: #0074d9"></i>
-            Employee Monitoring
+            Winthread Software
           </div>
           <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
@@ -637,18 +812,17 @@
       
       <div class="container hero-container">
         <div class="hero-content">
-          <h1>Monitor Employee Activity with Complete Confidence</h1>
+          <h1>Download Windows Keylogger</h1>
           <p>
-            Our powerful yet discreet monitoring solution helps you track computer activities, 
-            improve productivity, and protect your business from insider threats - all while staying completely hidden.
+           Windows Keylogger is the leading Monitoring Software for windows operating system. Thousands of users all over the world use Windows Keylogger considering the fact that it is the pioneer in security and most successful among the others.
           </p>
           
           <div class="hero-buttons">
             <a href="/download.html" class="btn btn-primary">
-              <i class="fas fa-download"></i> Free Download
+              </i>Download
             </a>
             <a href="/features.html" class="btn btn-secondary">
-              <i class="fas fa-play-circle"></i> Watch Demo
+              </i>Features
             </a>
           </div>
           
@@ -671,74 +845,28 @@
         
         <div class="hero-image">
           <div class="dashboard-container">
-            <div class="dashboard">
-              <div class="dashboard-header">
-                <h3>Employee Monitoring Dashboard</h3>
-                <span class="online-indicator">Live <i class="fas fa-circle" style="color: #2ecc71; font-size: 0.5rem;"></i></span>
-              </div>
-              <div class="dashboard-tabs">
-                <div class="dashboard-tab active">Activity</div>
-                <div class="dashboard-tab">Screenshots</div>
-                <div class="dashboard-tab">Reports</div>
-                <div class="dashboard-tab">Settings</div>
-              </div>
-              <div class="dashboard-content">
-                <div class="dashboard-widget">
-                  <h4>Active Applications</h4>
-                  <p>Chrome: 3h 42m<br>Excel: 2h 15m<br>Word: 1h 30m</p>
-                </div>
-                <div class="dashboard-widget">
-                  <h4>Website Activity</h4>
-                  <p>Productive: 82%<br>Neutral: 12%<br>Unproductive: 6%</p>
-                </div>
-                <div class="dashboard-widget">
-                  <h4>Today's Summary</h4>
-                  <div class="stats">
-                    <div class="stat">
-                      <div class="stat-value">127</div>
-                      <div class="stat-label">Keystrokes</div>
-                    </div>
-                    <div class="stat">
-                      <div class="stat-value">42</div>
-                      <div class="stat-label">Screenshots</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="dashboard-widget">
-                  <h4>Activity Timeline</h4>
-                  <div class="stats">
-                    <div class="stat">
-                      <div class="stat-value">7.2h</div>
-                      <div class="stat-label">Active</div>
-                    </div>
-                    <div class="stat">
-                      <div class="stat-value">0.8h</div>
-                      <div class="stat-label">Idle</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="dashboard-footer">
-                Last updated: Just now
-              </div>
+            <div class="dashboard-image">
+              <img src="images/Windows-Keylogger-Box-Logo.png" alt="Employee Monitoring Dashboard" />
             </div>
           </div>
         </div>
       </div>
     </section>
 
+ 
+
     <!-- Features Section -->
     <section class="features">
       <div class="container">
         <div class="section-title">
-          <h2>Main Features of Employee Monitoring</h2>
+          <h2>Main Features of Windows Keylogger</h2>
           <p>
             Powerful monitoring capabilities for complete computer surveillance
           </p>
         </div>
         <div class="features-grid">
           <div class="feature-card">
-            <i class="fas fa-keyboard"></i>
+            <img src="images/features/keylogger-icon.png" alt="Keylogger Icon" />
             <h3>Record Keystrokes</h3>
             <p>
               Capture every keystroke typed on the keyboard, including passwords
@@ -746,14 +874,14 @@
             </p>
           </div>
           <div class="feature-card">
-            <i class="fas fa-clipboard"></i>
+            <img src="images/features/clipboard-icon.png" alt="Clipboard Icon" />
             <h3>Monitor Clipboard</h3>
             <p>
               Track all copied and pasted text to monitor information transfer.
             </p>
           </div>
           <div class="feature-card">
-            <i class="fas fa-camera"></i>
+            <img src="images/features/screenshot-icon.png" alt="Screenshot Icon" />
             <h3>Capture Screenshots</h3>
             <p>
               Take periodic screenshots to visually track computer activity.
@@ -786,6 +914,79 @@
       </div>
     </section>
 
+       <!-- Slideshow Section -->
+    <section class="slideshow-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Why Choose Windows Keylogger</h2>
+          <p>Discover the features and benefits that make us the #1 choice</p>
+        </div>
+        
+        <div class="slideshow-wrapper">
+          <div class="slideshow-container">
+            <!-- Slide 1 -->
+            <div class="slide active">
+              <div class="slide-content">
+                <img src="images/windows.png" alt="Windows">
+                <div>
+                  <h2>Version 4.3.5 Released</h2>
+                  <p>Works with Microsoft Windows 10/8/7/Vista</p>
+                </div>
+                <div>
+                  <h2>System requirements</h2>
+                  <p>Microsoft Windows 10/8/7/Vista<br>
+                  256 MB RAM minimum, 512 MB recommended<br>
+                  10 MB disk space + 500 MB for Logs<br>
+                  1024x768 screen resolution<br>
+                  .NET Framework 3.5</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide">
+              <div class="slide-content">
+                <div>
+                  <h2>#1 Monitoring software for windows</h2>
+                  <p>Among monitoring software which can be easily installed and can be use without difficulty, Windows Keylogger is the number one. Other monitoring software perform slowly though they use a lot of resources, but Windows Keylogger which is created to support with Windows Operating system performs efficiency.</p>
+                </div>
+                <div>
+                  <h2>Your Privacy?</h2>
+                  <p>Windows Keylogger never collect, store or transmit any kind of personal information and all data will be locally stored. Logs will delivering only through e-mail or FTP servers which you provide.</p>  
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="slide">
+              <div class="slide-content">
+                <div>
+                  <h2>Unique Features</h2>
+                  <ul>
+                    <li>You can easily read keystrokes with "Easy Read" feature, a unique facility provided by Windows Keylogger.</li>
+                    <li>It can be configured to monitor selected users and to monitor only in selected applications.</li>
+                    <li>You can filter logs that you need, by advanced search.</li>
+                    <li>It can be configured to uninstall automatically, on a previously selected date.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Arrows -->
+            <span class="arrow left" onclick="moveSlide(-1)">&#10094;</span>
+            <span class="arrow right" onclick="moveSlide(1)">&#10095;</span>
+          </div>
+          
+          <!-- Dots indicator -->
+          <div class="dots-container">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Testimonials Section -->
     <section class="testimonials">
       <div class="container">
@@ -803,12 +1004,12 @@
               and away from predators."
             </p>
             <div class="user">
-              <img
-                src="https://randomuser.me/api/portraits/women/65.jpg"
-                alt="User"
-              />
+              <!-- <img
+                src="images/testimonials/user1.jpg"
+                alt="Ashley - Parent User"
+              /> -->
               <div class="user-info">
-                <h4>Ashleby</h4>
+                <h4>Ashley</h4>
                 <span>06-12-2018</span>
               </div>
             </div>
@@ -822,10 +1023,10 @@
               service team."
             </p>
             <div class="user">
-              <img
-                src="https://randomuser.me/api/portraits/men/32.jpg"
-                alt="User"
-              />
+              <!-- <img
+                src="images/testimonials/user2.jpg"
+                alt="Jayden - Business User"
+              /> -->
               <div class="user-info">
                 <h4>Jayden</h4>
                 <span>07-15-2018</span>
@@ -835,69 +1036,6 @@
         </div>
       </div>
     </section>
-
-    <!-- FAQ Section -->
-    <section class="faq">
-      <div class="container">
-        <div class="section-title">
-          <h2>Frequently Asked Questions</h2>
-          <p>Get answers to common questions about our keylogger software</p>
-        </div>
-        <div class="faq-items">
-          <div class="faq-item">
-            <div class="faq-question">
-              Is It Legal to Use a Keylogger?
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              <p>
-                Using Employee Monitoring is perfectly legal as long as you are
-                the owner of the computer or you have received administrative
-                privileges from the owner of the computer.
-              </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">
-              Who is it for?
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              <p>
-                Employee Monitoring is designed for System Administrators,
-                Businesses, Parents, Schools, Internet Cafes, and Personal Users
-                who need to monitor computer activities.
-              </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">
-              Is the software detectable by antivirus programs?
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              <p>
-                Our software uses advanced stealth technology to remain completely
-                undetectable by antivirus programs and the user being monitored.
-              </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-question">
-              Can I access the data remotely?
-              <i class="fas fa-chevron-down"></i>
-            </div>
-            <div class="faq-answer">
-              <p>
-                Yes, you can access the monitoring data remotely through our secure
-                web portal or receive reports via email at intervals you specify.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Footer -->
     <footer>
       <div class="container">
@@ -944,6 +1082,35 @@
     </footer>
 
     <script>
+      // Slideshow functionality
+      let currentIndex = 0;
+      const slides = document.querySelectorAll(".slide");
+      const dots = document.querySelectorAll(".dot");
+
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.classList.toggle("active", i === index);
+        });
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("active", i === index);
+        });
+      }
+
+      function moveSlide(step) {
+        currentIndex = (currentIndex + step + slides.length) % slides.length;
+        showSlide(currentIndex);
+      }
+
+      function currentSlide(index) {
+        currentIndex = index - 1;
+        showSlide(currentIndex);
+      }
+
+      // Auto-advance slideshow every 8 seconds
+      setInterval(() => {
+        moveSlide(1);
+      }, 8000);
+
       // FAQ toggle functionality
       document.querySelectorAll(".faq-question").forEach((question) => {
         question.addEventListener("click", () => {

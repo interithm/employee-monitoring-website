@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styled Slideshow</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #f0f4ff, #e8ecf8);
+      margin: 0;
+    }
+
+    .slideshow-container {
+      position: relative;
+      width: 90%;
+      max-width: 1000px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      padding: 40px;
+      transition: opacity 0.6s ease-in-out;
+    }
+
+    .slide.active {
+      display: block;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    .slide-content {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .slide img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: #f7f7f7;
+      padding: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      color: #333;
+    }
+
+    p {
+      margin: 5px 0;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 40px;
+      font-weight: bold;
+      color: #444;
+      cursor: pointer;
+      user-select: none;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .arrow:hover {
+      background: #0078d7;
+      color: #fff;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .arrow.left {
+      left: 15px;
+    }
+
+    .arrow.right {
+      right: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="slideshow-container">
+    <!-- Slide 1 -->
+    <div class="slide active">
+      <div class="slide-content">
+        <img src="images/windows.png" alt="Windows">
+        <div>
+          <h2>Version 4.3.5 Released</h2>
+          <p>Works with Microsoft Windows 10/8/7/Vista</p>
+        </div>
+        <div>
+          <h2>System requirements</h2>
+          <p>Microsoft Windows 10/8/7/Vista<br>
+          256 MB RAM minimum, 512 MB recommended<br>
+          10 MB disk space + 500 MB for Logs<br>
+          1024x768 screen resolution<br>
+          .NET Framework 3.5</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <div class="slide-content">
+        <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React"> -->
+        <div>
+<h2>
+#1 Monitoring software for windows</h2>
+          <p>Among monitoring software which can be easily installed and can be use without difficulty, Windows Keylogger is the number one. Other monitoring software perform slowly though they use a lot of resources, but Windows Keylogger which is created to support with Windows Operating system performs efficiency.</p>
+        </div>
+        <div>
+          <h2>Your Privacy?</h2>
+          <p>Windows Keylogger never collect, store or transmit any kind of personal information and all data will be locally stored. Logs will delivering only through e-mail or FTP servers which you provide.</p>  
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+      <div class="slide-content">
+        <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript"> -->
+        <div>
+          <h2>Unique Features</h2>
+          <ul>
+            <li>You can easily read keystrokes with “Easy Read” feature, a unique facility provided by Windows Keylogger.</li>
+            <li>It can be configured to monitor selected users and to monitor only in selected applications.</li>
+            <li>You can filter logs that you need, by advanced search.</li>
+            <li>It can be configured to uninstall automatically, on a previously selected date.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arrows -->
+    <span class="arrow left" onclick="moveSlide(-1)">&#10094;</span>
+    <span class="arrow right" onclick="moveSlide(1)">&#10095;</span>
+  </div>
+
+  <script>
+    let currentIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+    }
+
+    function moveSlide(step) {
+      currentIndex = (currentIndex + step + slides.length) % slides.length;
+      showSlide(currentIndex);
+    }
+  </script>
+</body>
+</html>
