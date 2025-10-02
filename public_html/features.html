@@ -387,7 +387,48 @@
      <script>
     fetch("navbar.html")
       .then(res => res.text())
-      .then(data => document.getElementById("navbar").innerHTML = data);
+      .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+        
+        // Initialize navbar functionality after content is loaded
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const body = document.body;
+
+        const toggleMenu = () => {
+          navLinks.classList.toggle('active');
+          body.classList.toggle('menu-open');
+
+          const icon = menuToggle.querySelector('i');
+          icon.classList.toggle('fa-bars');
+          icon.classList.toggle('fa-times');
+        };
+
+        const closeMenu = () => {
+          navLinks.classList.remove('active');
+          body.classList.remove('menu-open');
+          menuToggle.querySelector('i').classList.add('fa-bars');
+          menuToggle.querySelector('i').classList.remove('fa-times');
+        };
+
+        menuToggle.addEventListener('click', toggleMenu);
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          link.addEventListener('click', (e) => {
+            if (body.classList.contains('menu-open') && window.innerWidth <= 768) {
+              closeMenu();
+            }
+          });
+        });
+
+        document.addEventListener('click', (e) => {
+          if (body.classList.contains('menu-open') && 
+              !navLinks.contains(e.target) && 
+              !menuToggle.contains(e.target)) {
+            closeMenu();
+          }
+        });
+      });
 
     fetch("footer.html")
       .then(res => res.text())
