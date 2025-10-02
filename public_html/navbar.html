@@ -180,5 +180,24 @@
       </nav>
     </div>
   </header>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const body = document.body;
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      body.classList.toggle('menu-open');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('nav')) {
+        navLinks.classList.remove('active');
+        body.classList.remove('menu-open');
+      }
+    });
+  </script>
 </body>
 </html>
