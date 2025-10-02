@@ -293,12 +293,16 @@
         font-size: 0.9rem;
       }
       @media (max-width: 768px) {
+        .container {
+          padding: 0 15px;
+        }
+        
         .header-content {
           flex-direction: column;
           text-align: center;
         }
         .hero {
-          padding: 80px 20px;
+          padding: 60px 20px;
         }
         .hero h1 {
           font-size: 2.2rem;
@@ -350,6 +354,10 @@
         .additional-features .container > div:first-of-type {
           grid-template-columns: 1fr !important;
           gap: 40px !important;
+        }
+        
+        .about-section, .why-section {
+          padding: 60px 0 !important;
         }
       }
 

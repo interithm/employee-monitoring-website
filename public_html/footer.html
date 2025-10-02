@@ -3,7 +3,8 @@
 
     <!-- Logo + About -->
     <div style="flex:1; min-width:220px;">
-      <img src="images/logo.png" alt="Company Logo" style="width:150px; margin-bottom:15px;">
+      <!-- <img src="images/logo.png" alt="Company Logo" style="width:150px; margin-bottom:15px;"> -->
+      <h2 style="color:#fff; margin-bottom:15px; font-size:20px;">Winthread Software </h2>
       <p style="color:#aaa; font-size:14px; line-height:1.6;">
         We create innovative solutions to make your digital journey easier and smarter.
       </p>
@@ -37,4 +38,26 @@
   <div style="max-width:1200px; margin:0 auto; text-align:center; font-size:14px; color:#777;">
     <p>&copy; 2025 My Website | All rights reserved.</p>
   </div>
+  
+  <style>
+    @media (max-width: 768px) {
+      footer > div:first-child {
+        flex-direction: column !important;
+        text-align: center !important;
+      }
+      
+      footer > div:first-child > div {
+        min-width: 100% !important;
+        margin-bottom: 30px !important;
+      }
+      
+      footer h2, footer h3 {
+        font-size: 18px !important;
+      }
+      
+      footer p, footer a {
+        font-size: 14px !important;
+      }
+    }
+  </style>
 </footer>

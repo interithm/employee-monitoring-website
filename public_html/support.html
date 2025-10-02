@@ -154,7 +154,26 @@
         box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
       }
       @media (max-width: 768px) {
-        /* ...existing code... */
+        .container {
+          padding: 0 15px;
+        }
+        
+        .header-content {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .support-hero h1 {
+          font-size: 2.2rem;
+        }
+        .support-hero p {
+          font-size: 1.1rem;
+        }
+        
+        .hero {
+          padding: 80px 20px;
+        }
+        
         .hero h1 {
           font-size: 2.5rem;
         }
@@ -169,6 +188,32 @@
           padding: 12px 25px;
           width: 100%;
           text-align: center;
+        }
+        .options-grid,
+        .doc-cards {
+          grid-template-columns: 1fr;
+        }
+        .contact-container {
+          grid-template-columns: 1fr;
+        }
+
+        .requirements-container {
+          padding: 30px 20px;
+        }
+        .requirements-container h2 {
+          font-size: 1.8rem;
+        }
+        .requirements-list li {
+          font-size: 1rem;
+          padding: 12px 15px;
+        }
+        
+        .support-options, .documentation, .system-requirements {
+          padding: 60px 0;
+        }
+        
+        .section-title h2 {
+          font-size: 2rem;
         }
       }
 
@@ -438,6 +483,10 @@
 
       /* Responsive Styles */
       @media (max-width: 768px) {
+        .container {
+          padding: 0 15px;
+        }
+        
         .header-content {
           flex-direction: column;
           text-align: center;
@@ -448,6 +497,26 @@
         }
         .support-hero p {
           font-size: 1.1rem;
+        }
+        
+        .hero {
+          padding: 80px 20px;
+        }
+        
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+        .hero p {
+          font-size: 1.1rem;
+        }
+        .hero-buttons {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .btn {
+          padding: 12px 25px;
+          width: 100%;
+          text-align: center;
         }
         .options-grid,
         .doc-cards {
@@ -467,13 +536,13 @@
           font-size: 1rem;
           padding: 12px 15px;
         }
-
-        /* Mobile menu button */
-        .menu-toggle {
-          display: block;
-          font-size: 1.5rem;
-          cursor: pointer;
-          color: #333;
+        
+        .support-options, .documentation, .system-requirements {
+          padding: 60px 0;
+        }
+        
+        .section-title h2 {
+          font-size: 2rem;
         }
       }
 

@@ -1,114 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Navbar</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <style>
-      header {
-        background: white;
-        color: #333;
-        padding: 15px 0;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-      }
-      nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .logo {
-        font-size: 24px;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-      }
-      .logo i {
-        margin-right: 10px;
-        color: #0074d9;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Navbar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .logo a {
+      color: #0074d9;
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      left: 0;
+      bottom: -5px;
+      background: #0074d9;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover::after { width: 100%; }
+
+    .download-btn {
+      background: #0074d9;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .download-btn:hover { background: #005fa3; }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* MOBILE STYLES */
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+
       .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: calc(100vh - 70px);
+        background: white;
         display: flex;
-        list-style: none;
+        flex-direction: column;
+        padding: 30px 20px;
+        gap: 20px;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        z-index: 1001;
       }
-      .nav-links li {
-        margin-left: 30px;
-      }
-      .nav-links a {
-        color: #333;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s;
-        position: relative;
-      }
-      .nav-links a:hover {
-        color: #0074d9;
-      }
-      .nav-links a::after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: -5px;
+
+      .nav-links.active {
         left: 0;
-        background-color: #0074d9;
-        transition: width 0.3s;
       }
-      .nav-links a:hover::after {
-        width: 100%;
-      }
+
       .download-btn {
-        background-color: #0074d9;
-        color: white;
-        padding: 10px 20px;
+        display: none;
+      }
+
+      .nav-links li {
+        margin: 0;
+      }
+
+      .nav-links a {
+        font-size: 18px;
+        padding: 10px 0;
+        display: block;
+      }
+
+      .nav-links .mobile-download {
+        background: #0074d9;
+        color: white !important;
+        padding: 12px 20px;
         border-radius: 5px;
-        text-decoration: none;
+        text-align: center;
+        margin-top: 20px;
         font-weight: bold;
-        transition: background-color 0.3s;
       }
-      .download-btn:hover {
-        background-color: #005fa3;
+
+      .nav-links .mobile-download:hover {
+        background: #005fa3;
       }
-      @media (max-width: 768px) {
-        .nav-links {
-          display: none;
+
+      .nav-links .mobile-download::after {
+        display: none;
+      }
+
+      .nav-links li:last-child {
+        margin-top: 20px;
+      }
+
+      .nav-links li:last-child::after {
+        content: "";
+        display: block;
+        margin: 20px 0 10px 0;
+      }
+
+      body.menu-open::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.3);
+        z-index: 1000;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo"><a href="index.html">Winthread Software</a></div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="download.html">Download</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="download.html" class="mobile-download">Download Now</a></li>
+        </ul>
+        <a href="download.html" class="download-btn">Download Now</a>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+      </nav>
+    </div>
+  </header>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const downloadBtn = document.querySelector('.download-btn');
+    const body = document.body;
+
+    const toggleMenu = () => {
+      navLinks.classList.toggle('active');
+      body.classList.toggle('menu-open');
+
+      const icon = menuToggle.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    };
+
+    const closeMenu = () => {
+      navLinks.classList.remove('active');
+      body.classList.remove('menu-open');
+      menuToggle.querySelector('i').classList.add('fa-bars');
+      menuToggle.querySelector('i').classList.remove('fa-times');
+    };
+
+    menuToggle.addEventListener('click', toggleMenu);
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        if (body.classList.contains('menu-open') && window.innerWidth <= 768) {
+          closeMenu();
         }
-        .menu-toggle {
-          display: block;
-          font-size: 1.5rem;
-          cursor: pointer;
-          color: #333;
-        }
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (body.classList.contains('menu-open') && 
+          !navLinks.contains(e.target) && 
+          !menuToggle.contains(e.target)) {
+        closeMenu();
       }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="container">
-        <nav>
-          <div class="logo">
-            <i class="fas fa-user-shield" style="color: #0074d9"></i>
-            Winthread Software
-          </div>
-          <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="download.html">Download</a></li>
-            <li><a href="support.html">Support</a></li>
-            <!-- <li><a href="documentation.html">Documentation</a></li> -->
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-          <div class="menu-toggle" style="display: none">
-            <i class="fas fa-bars"></i>
-          </div>
-        </nav>
-      </div>
-    </header>
-  </body>
+    });
+  </script>
+</body>
 </html>

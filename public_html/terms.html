@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>How to Install Windows Keylogger</title>
+    <title>Terms of Use - Winthread Software</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -15,7 +15,7 @@
         max-width: 800px;
         margin: 0 auto;
         padding: 20px;
-        background-color: #f9f9f9;
+        /* background-color: #f9f9f9; */
         color: #333;
       }
       
@@ -31,19 +31,31 @@
         width: 100vw;
         margin-left: calc(-50vw + 50%);
       }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
       nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 0 20px;
       }
       .logo {
         font-size: 24px;
         font-weight: bold;
         display: flex;
         align-items: center;
+      }
+      .logo a {
+        color: #333;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+      }
+      .logo a:hover {
+        color: #0074d9;
+        transition: color 0.3s;
       }
       .logo i {
         margin-right: 10px;
@@ -129,44 +141,37 @@
         text-align: justify;
       }
       
-      .container {
+      .content-container {
         background-color: white;
         padding: 30px;
         border-radius: 8px;
-      }
-      
-      .full-width-footer {
-        width: 100vw;
-        margin-left: calc(-50vw + 50%);
-        background: #1a1a1a;
-        color: #ccc;
-        padding: 40px 20px;
-        font-family: Arial, sans-serif;
       }
     </style>
   </head>
   <body>
     <header>
-      <nav>
-        <div class="logo">
-          <i class="fas fa-user-shield" style="color: #0074d9"></i>
-          Winthread Software
-        </div>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="features.html">Features</a></li>
-          <li><a href="download.html">Download</a></li>
-          <li><a href="support.html">Support</a></li>
-          <li><a href="documentation.html">Documentation</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="menu-toggle" style="display: none">
-          <i class="fas fa-bars"></i>
-        </div>
-      </nav>
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <a href="index.html">
+              Winthread Software
+            </a>
+          </div>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="download.html">Download</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <div class="menu-toggle" style="display: none">
+            <i class="fas fa-bars"></i>
+          </div>
+        </nav>
+      </div>
     </header>
     
-    <div class="container">
+    <div class="content-container">
       <h1>Terms of Use</h1>
       <p> PLEASE READ THE TERMS OF USE CAREFULLY BEFORE USING SITE. By accessing and using Site in any way, including browsing Site, using any information, content, or services, downloading any software or files, or placing orders for products, you agree to abide by the terms of use described on this page</p>
 
@@ -183,12 +188,12 @@
   Winthread reserves the right to determine what constitutes improper or inappropriate use of Winthread Marks and Logos, and you agree to correct improper/inappropriate use of Winthread  Marks and Logos, or to cease use of the same upon notification from Winthread.</p>
     </div>
     
-    <footer class="full-width-footer">
+    <footer style="background:#1a1a1a; color:#ccc; padding:40px 20px; font-family:Arial, sans-serif; width:100vw; margin-left:calc(-50vw + 50%);">
       <div style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:20px;">
 
         <!-- Logo + About -->
         <div style="flex:1; min-width:220px;">
-          <img src="images/logo.png" alt="Company Logo" style="width:150px; margin-bottom:15px;">
+          <h2 style="color:#fff; margin-bottom:15px; font-size:20px;">Winthread Software</h2>
           <p style="color:#aaa; font-size:14px; line-height:1.6;">
             We create innovative solutions to make your digital journey easier and smarter.
           </p>
@@ -198,7 +203,7 @@
         <div style="flex:1; min-width:180px;">
           <h3 style="color:#fff; margin-bottom:15px; font-size:16px;">Company</h3>
           <ul style="list-style:none; padding:0; margin:0; line-height:2;">
-            <li><a href="privacy.html" style="color:#ccc; text-decoration:none;">Privacy Policy</a></li>
+            <li><a href="privacy-policy.html" style="color:#ccc; text-decoration:none;">Privacy Policy</a></li>
             <li><a href="support.html" style="color:#ccc; text-decoration:none;">Support</a></li>
             <li><a href="contact.html" style="color:#ccc; text-decoration:none;">Contact Us</a></li>
           </ul>
@@ -209,7 +214,7 @@
           <h3 style="color:#fff; margin-bottom:15px; font-size:16px;">Resources</h3>
           <ul style="list-style:none; padding:0; margin:0; line-height:2;">
             <li><a href="faq.html" style="color:#ccc; text-decoration:none;">FAQ</a></li>
-            <li><a href="downloads.html" style="color:#ccc; text-decoration:none;">Downloads</a></li>
+            <li><a href="download.html" style="color:#ccc; text-decoration:none;">Downloads</a></li>
             <li><a href="terms.html" style="color:#ccc; text-decoration:none;">Terms of Service</a></li>
           </ul>
         </div>
