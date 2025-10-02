@@ -176,6 +176,24 @@
         margin: 0 auto;
         padding: 20px;
       }
+      .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #f8f9fa;
+        color: #333;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        margin-bottom: 20px;
+        transition: 0.3s;
+        border: 1px solid #dee2e6;
+      }
+      .back-btn:hover {
+        background: #e9ecef;
+        color: #0074d9;
+      }
       h1 {
         text-align: center;
       }
@@ -257,6 +275,10 @@
     </header>
 
     <div class="content">
+      <a href="../support.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i>
+        Back to Support
+      </a>
       <h1>Setting up FTP delivery</h1>
       <ol>
         <li>Open Settings and go to the FTP tab.</li>
