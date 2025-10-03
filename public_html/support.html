@@ -157,7 +157,7 @@
         .container {
           padding: 0 15px;
         }
-        
+
         .header-content {
           flex-direction: column;
           text-align: center;
@@ -169,11 +169,11 @@
         .support-hero p {
           font-size: 1.1rem;
         }
-        
+
         .hero {
           padding: 80px 20px;
         }
-        
+
         .hero h1 {
           font-size: 2.5rem;
         }
@@ -207,11 +207,13 @@
           font-size: 1rem;
           padding: 12px 15px;
         }
-        
-        .support-options, .documentation, .system-requirements {
+
+        .support-options,
+        .documentation,
+        .system-requirements {
           padding: 60px 0;
         }
-        
+
         .section-title h2 {
           font-size: 2rem;
         }
@@ -468,10 +470,10 @@
         font-size: 1.1rem;
         transition: transform 0.2s;
       }
-      .requirements-list li:hover {
+      /* .requirements-list li:hover {
         transform: translateX(5px);
         background: #e3f2fd;
-      }
+      } */
       .requirements-list li::before {
         content: "\f00c";
         font-family: "Font Awesome 6 Free";
@@ -486,7 +488,7 @@
         .container {
           padding: 0 15px;
         }
-        
+
         .header-content {
           flex-direction: column;
           text-align: center;
@@ -498,11 +500,11 @@
         .support-hero p {
           font-size: 1.1rem;
         }
-        
+
         .hero {
           padding: 80px 20px;
         }
-        
+
         .hero h1 {
           font-size: 2.5rem;
         }
@@ -536,11 +538,13 @@
           font-size: 1rem;
           padding: 12px 15px;
         }
-        
-        .support-options, .documentation, .system-requirements {
+
+        .support-options,
+        .documentation,
+        .system-requirements {
           padding: 60px 0;
         }
-        
+
         .section-title h2 {
           font-size: 2rem;
         }
@@ -572,42 +576,47 @@
         .then((res) => res.text())
         .then((data) => {
           document.getElementById("navbar").innerHTML = data;
-          
+
           // Initialize navbar functionality after content is loaded
-          const menuToggle = document.querySelector('.menu-toggle');
-          const navLinks = document.querySelector('.nav-links');
+          const menuToggle = document.querySelector(".menu-toggle");
+          const navLinks = document.querySelector(".nav-links");
           const body = document.body;
 
           const toggleMenu = () => {
-            navLinks.classList.toggle('active');
-            body.classList.toggle('menu-open');
+            navLinks.classList.toggle("active");
+            body.classList.toggle("menu-open");
 
-            const icon = menuToggle.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
+            const icon = menuToggle.querySelector("i");
+            icon.classList.toggle("fa-bars");
+            icon.classList.toggle("fa-times");
           };
 
           const closeMenu = () => {
-            navLinks.classList.remove('active');
-            body.classList.remove('menu-open');
-            menuToggle.querySelector('i').classList.add('fa-bars');
-            menuToggle.querySelector('i').classList.remove('fa-times');
+            navLinks.classList.remove("active");
+            body.classList.remove("menu-open");
+            menuToggle.querySelector("i").classList.add("fa-bars");
+            menuToggle.querySelector("i").classList.remove("fa-times");
           };
 
-          menuToggle.addEventListener('click', toggleMenu);
+          menuToggle.addEventListener("click", toggleMenu);
 
-          document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', (e) => {
-              if (body.classList.contains('menu-open') && window.innerWidth <= 768) {
+          document.querySelectorAll(".nav-links a").forEach((link) => {
+            link.addEventListener("click", (e) => {
+              if (
+                body.classList.contains("menu-open") &&
+                window.innerWidth <= 768
+              ) {
                 closeMenu();
               }
             });
           });
 
-          document.addEventListener('click', (e) => {
-            if (body.classList.contains('menu-open') && 
-                !navLinks.contains(e.target) && 
-                !menuToggle.contains(e.target)) {
+          document.addEventListener("click", (e) => {
+            if (
+              body.classList.contains("menu-open") &&
+              !navLinks.contains(e.target) &&
+              !menuToggle.contains(e.target)
+            ) {
               closeMenu();
             }
           });
@@ -639,13 +648,18 @@
 
         <div class="options-grid">
           <div class="support-option">
-            <i class="fas fa-question-circle"></i>
-            <h3>FAQs</h3>
+            <i
+              class="fas fa-info-circle fa-3x"
+              style="color: #007bff; margin-bottom: 10px"
+            ></i>
+            <h3>Windows Keylogger</h3>
             <p>
-              Find answers to frequently asked questions about installation,
-              features, and troubleshooting.
+              Learn about the main features, installation steps, and monitoring
+              capabilities of Windows Keylogger software.
             </p>
-            <a href="#faq" class="btn">Browse FAQs</a>
+            <a href="./windows-keylogger-overview.html" class="btn"
+              >View Overview</a
+            >
           </div>
 
           <!-- <div class="support-option">
@@ -665,7 +679,7 @@
               Can't find what you're looking for? Contact our support team for
               personalized assistance.
             </p>
-            <a href="#contact" class="btn">Contact Us</a>
+            <a href="./contact.html" class="btn">Contact Us</a>
           </div>
         </div>
       </div>
