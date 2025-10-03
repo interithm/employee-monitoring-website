@@ -739,7 +739,29 @@
      <script>
     fetch("navbar.html")
       .then(res => res.text())
-      .then(data => document.getElementById("navbar").innerHTML = data);
+      .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+        
+        // Initialize navbar functionality after loading
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const body = document.body;
+
+        if (menuToggle && navLinks) {
+          menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            body.classList.toggle('menu-open');
+          });
+
+          // Close menu when clicking outside
+          document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav')) {
+              navLinks.classList.remove('active');
+              body.classList.remove('menu-open');
+            }
+          });
+        }
+      });
 
     fetch("footer.html")
       .then(res => res.text())

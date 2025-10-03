@@ -16,8 +16,8 @@
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
       body {
-        background-color: #f6f8fa; /* lighter gray */
-        color: #222e3a; /* darker neutral */
+        background-color: #f6f8fa;
+        color: #222e3a;
         line-height: 1.6;
       }
       .container {
@@ -47,15 +47,11 @@
       }
       .logo i {
         margin-right: 10px;
-        color: #2563eb; /* blue */
+        color: #2563eb;
       }
    
       .hero {
-        background: linear-gradient(
-          135deg,
-          #4a6fa5 0%,
-          #2c3e50 100%
-        ); /* blue to dark blue */
+        background: linear-gradient(135deg, #4a6fa5 0%, #2c3e50 100%);
         color: #fff;
         text-align: center;
         padding: 100px 20px;
@@ -76,13 +72,13 @@
       .hero-content {
         position: relative;
         z-index: 1;
-        min-width: 550px;
+        max-width: 800px;
         margin: 0 auto;
       }
       .hero h1 {
         font-size: 3rem;
         margin-bottom: 20px;
-        text-shadow: 2px 2px 4px rgba(30, 41, 59, 0.2); /* dark blue shadow */
+        text-shadow: 2px 2px 4px rgba(30, 41, 59, 0.2);
       }
       .hero p {
         font-size: 1.3rem;
@@ -94,6 +90,7 @@
         justify-content: center;
         gap: 20px;
         margin-top: 30px;
+        flex-wrap: wrap;
       }
       .btn {
         padding: 15px 35px;
@@ -103,14 +100,16 @@
         transition: all 0.3s;
         display: inline-block;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        min-width: 140px;
+        text-align: center;
       }
       .btn-primary {
-        background-color: #2563eb; /* blue */
+        background-color: #2563eb;
         color: #fff;
         border: 2px solid #2563eb;
       }
       .btn-primary:hover {
-        background-color: #1e40af; /* darker blue */
+        background-color: #1e40af;
         border-color: #1e40af;
         box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
       }
@@ -128,10 +127,9 @@
         text-align: center;
         margin-bottom: 60px;
         font-size: 2.5rem;
-        color: #1e293b; /* dark blue */
+        color: #1e293b;
       }
 
-      /* Add consistent section styling */
       .key-features,
       .additional-features {
         padding: 80px 0;
@@ -140,12 +138,12 @@
 
       .comparison {
         padding: 80px 0;
-        background-color: #e5eaf2; /* pale blue-gray */
+        background-color: #e5eaf2;
       }
 
       .features-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 30px;
         max-width: 1200px;
         margin: 0 auto;
@@ -162,47 +160,47 @@
         flex-direction: column;
         justify-content: space-between;
       }
-      /* .feature-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
-      } */
       .feature-card i {
         font-size: 3rem;
-        color: #2563eb; /* blue */
+        color: #2563eb;
         margin-bottom: 25px;
       }
       .feature-card h3 {
         font-size: 1.4rem;
         margin-bottom: 15px;
-        color: #1e293b; /* dark blue */
+        color: #1e293b;
       }
       .feature-card p {
         color: #64748b;
         line-height: 1.7;
         flex-grow: 1;
       }
-      .comparison {
-        padding: 80px 0;
-        background-color: #e5eaf2; /* pale blue-gray */
+      
+      .table-container {
+        overflow-x: auto;
+        margin: 0 auto;
+        max-width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
       }
+      
       table {
         width: 100%;
-        max-width: 800px;
-        margin: 0 auto;
+        min-width: 600px;
         border-collapse: collapse;
         background: #fff;
         border-radius: 12px;
         overflow: hidden;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
       }
       th,
       td {
         padding: 18px 20px;
         text-align: left;
         border-bottom: 1px solid #e2e8f0;
+        white-space: nowrap;
       }
       th {
-        background-color: #2563eb; /* blue */
+        background-color: #2563eb;
         color: #fff;
         font-weight: 600;
         font-size: 1.1rem;
@@ -222,7 +220,7 @@
       }
       .testimonial-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 30px;
         max-width: 1200px;
         margin: 0 auto;
@@ -247,11 +245,11 @@
       }
       .testimonial-author {
         font-weight: 600;
-        color: #1e293b; /* dark blue */
+        color: #1e293b;
         font-size: 1rem;
       }
       footer {
-        background-color: #1e293b; /* dark blue */
+        background-color: #1e293b;
         color: #fff;
         padding: 50px 0 20px;
       }
@@ -263,7 +261,7 @@
       }
       .footer-section h3,
       .footer-section h4 {
-        color: #2563eb; /* blue */
+        color: #2563eb;
         margin-bottom: 20px;
       }
       .footer-section ul {
@@ -273,12 +271,12 @@
         margin-bottom: 10px;
       }
       .footer-section a {
-        color: #e5eaf2; /* pale blue-gray */
+        color: #e5eaf2;
         text-decoration: none;
         transition: color 0.3s;
       }
       .footer-section a:hover {
-        color: #2563eb; /* blue */
+        color: #2563eb;
       }
       .social-icons a {
         color: #fff;
@@ -288,80 +286,11 @@
       .footer-bottom {
         text-align: center;
         padding-top: 20px;
-        border-top: 1px solid #334155; /* blue-gray */
-        color: #94a3b8; /* muted blue-gray */
+        border-top: 1px solid #334155;
+        color: #94a3b8;
         font-size: 0.9rem;
       }
-      @media (max-width: 768px) {
-        .container {
-          padding: 0 15px;
-        }
-        
-        .header-content {
-          flex-direction: column;
-          text-align: center;
-        }
-        .hero {
-          padding: 60px 20px;
-        }
-        .hero h1 {
-          font-size: 2.2rem;
-        }
-        .hero p {
-          font-size: 1.1rem;
-        }
-        .hero-buttons {
-          flex-direction: column;
-          gap: 15px;
-        }
-        .btn {
-          padding: 12px 25px;
-          width: 100%;
-          text-align: center;
-        }
-        .section-title {
-          font-size: 2rem;
-          margin-bottom: 40px;
-        }
-        .features-grid {
-          grid-template-columns: 1fr;
-          gap: 25px;
-        }
-        .testimonial-grid {
-          grid-template-columns: 1fr;
-          gap: 25px;
-        }
-        .key-features,
-        .additional-features,
-        .comparison,
-        .testimonials {
-          padding: 60px 0;
-        }
-        th,
-        td {
-          padding: 12px 15px;
-          font-size: 0.9rem;
-        }
-        .image-showcase {
-          padding: 40px 0;
-        }
-        .image-showcase img {
-          margin: 0 10px;
-          border-radius: 8px;
-        }
-        
-        /* Add responsive styles for additional features section */
-        .additional-features .container > div:first-of-type {
-          grid-template-columns: 1fr !important;
-          gap: 40px !important;
-        }
-        
-        .about-section, .why-section {
-          padding: 60px 0 !important;
-        }
-      }
 
-      /* Add image section styling */
       .image-showcase {
         padding: 60px 0;
         background-color: #fff;
@@ -376,15 +305,279 @@
         margin: 0 auto;
         display: block;
       }
+
+      .features-two-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .features-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .features-list li {
+        margin-bottom: 20px;
+        padding: 20px;
+        background-color: #f8fafc;
+        border-radius: 8px;
+        border-left: 4px solid #2563eb;
+      }
+
+      .features-list li:last-child {
+        margin-bottom: 0;
+      }
+
+      .features-list i {
+        color: #2563eb;
+        margin-right: 10px;
+      }
+
+      .features-image {
+        text-align: center;
+      }
+
+      .features-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Mobile Responsive Styles */
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 15px;
+        }
+        
+        .header-content {
+          flex-direction: column;
+          text-align: center;
+          gap: 15px;
+        }
+        
+        .logo {
+          font-size: 20px;
+        }
+        
+        .hero {
+          padding: 60px 15px;
+        }
+        
+        .hero-content {
+          max-width: 100%;
+        }
+        
+        .hero h1 {
+          font-size: 2rem;
+          line-height: 1.2;
+          margin-bottom: 15px;
+        }
+        
+        .hero p {
+          font-size: 1rem;
+          margin-bottom: 25px;
+          padding: 0 10px;
+        }
+        
+        .hero-buttons {
+          flex-direction: column;
+          gap: 15px;
+          align-items: center;
+        }
+        
+        .btn {
+          padding: 12px 25px;
+          width: 100%;
+          max-width: 280px;
+          font-size: 0.95rem;
+        }
+        
+        .section-title {
+          font-size: 1.8rem;
+          margin-bottom: 30px;
+          padding: 0 10px;
+          line-height: 1.3;
+        }
+        
+        .features-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+          padding: 0 10px;
+        }
+        
+        .feature-card {
+          padding: 25px 20px;
+        }
+        
+        .feature-card i {
+          font-size: 2.5rem;
+          margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+          font-size: 1.2rem;
+          margin-bottom: 12px;
+        }
+        
+        .feature-card p {
+          font-size: 0.95rem;
+          line-height: 1.6;
+        }
+        
+        .testimonial-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+          padding: 0 10px;
+        }
+        
+        .testimonial {
+          padding: 25px 20px;
+        }
+        
+        .testimonial-text {
+          font-size: 1rem;
+          margin-bottom: 20px;
+        }
+        
+        .key-features,
+        .additional-features,
+        .comparison,
+        .testimonials {
+          padding: 50px 0;
+        }
+        
+        .table-container {
+          margin: 0 -15px;
+          border-radius: 0;
+        }
+        
+        table {
+          border-radius: 0;
+          min-width: 500px;
+        }
+        
+        th,
+        td {
+          padding: 12px 10px;
+          font-size: 0.85rem;
+        }
+        
+        th {
+          font-size: 0.9rem;
+        }
+        
+        .image-showcase {
+          padding: 40px 15px;
+        }
+        
+        .image-showcase img {
+          border-radius: 8px;
+        }
+        
+        .features-two-column {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+        
+        .features-list li {
+          padding: 15px;
+          margin-bottom: 15px;
+          font-size: 0.95rem;
+        }
+        
+        .about-section,
+        .why-section {
+          padding: 50px 0;
+        }
+        
+        .about-section .container > div,
+        .why-section .container > div {
+          padding: 0 10px;
+        }
+        
+        .about-section p,
+        .why-section p {
+          font-size: 1rem;
+          margin-bottom: 30px;
+        }
+        
+        .about-section h2 {
+          font-size: 1.6rem;
+          margin: 30px 0 15px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero {
+          padding: 50px 10px;
+        }
+        
+        .hero h1 {
+          font-size: 1.75rem;
+        }
+        
+        .hero p {
+          font-size: 0.95rem;
+        }
+        
+        .section-title {
+          font-size: 1.6rem;
+          margin-bottom: 25px;
+        }
+        
+        .feature-card {
+          padding: 20px 15px;
+        }
+        
+        .feature-card i {
+          font-size: 2.2rem;
+          margin-bottom: 15px;
+        }
+        
+        .feature-card h3 {
+          font-size: 1.1rem;
+        }
+        
+        .feature-card p {
+          font-size: 0.9rem;
+        }
+        
+        .features-list li {
+          padding: 12px;
+          font-size: 0.9rem;
+        }
+        
+        .btn {
+          padding: 10px 20px;
+          font-size: 0.9rem;
+        }
+        
+        th,
+        td {
+          padding: 10px 8px;
+          font-size: 0.8rem;
+        }
+        
+        .key-features,
+        .additional-features,
+        .comparison,
+        .testimonials {
+          padding: 40px 0;
+        }
+      }
     </style>
   </head>
   <body>
 
     <!-- Header/Navigation -->
-
     <div id="navbar"></div>
 
-     <script>
+    <script>
     fetch("navbar.html")
       .then(res => res.text())
       .then(data => {
@@ -530,121 +723,111 @@
       </div>
     </section>
 
-   
     <!-- Unique Features Section -->
     <section class="additional-features" style="padding: 80px 0; background-color: #fff;">
       <div class="container">
         <h2 class="section-title">Unique Features</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1200px; margin: 0 auto;">
+        <div class="features-two-column">
           <!-- Left side - Features List -->
           <div>
-            <ul style="list-style: none; padding: 0;">
-              <li style="margin-bottom: 20px; padding: 20px; background-color: #f8fafc; border-radius: 8px; border-left: 4px solid #2563eb;">
-                <i class="fas fa-book-open" style="color: #2563eb; margin-right: 10px;"></i>
+            <ul class="features-list">
+              <li>
+                <i class="fas fa-book-open"></i>
                 You can easily read keystrokes with "Easy Read" feature, a unique facility provided by Windows Keylogger.
               </li>
-              <li style="margin-bottom: 20px; padding: 20px; background-color: #f8fafc; border-radius: 8px; border-left: 4px solid #2563eb;">
-                <i class="fas fa-users" style="color: #2563eb; margin-right: 10px;"></i>
+              <li>
+                <i class="fas fa-users"></i>
                 It can be configured to monitor selected users and to monitor only in selected applications.
               </li>
-              <li style="margin-bottom: 20px; padding: 20px; background-color: #f8fafc; border-radius: 8px; border-left: 4px solid #2563eb;">
-                <i class="fas fa-search" style="color: #2563eb; margin-right: 10px;"></i>
+              <li>
+                <i class="fas fa-search"></i>
                 You can filter logs that you need, by advanced search.
               </li>
-              <li style="margin-bottom: 0; padding: 20px; background-color: #f8fafc; border-radius: 8px; border-left: 4px solid #2563eb;">
-                <i class="fas fa-calendar-times" style="color: #2563eb; margin-right: 10px;"></i>
+              <li>
+                <i class="fas fa-calendar-times"></i>
                 It can be configured to uninstall automatically, on a previously selected date.
               </li>
             </ul>
           </div>
           
           <!-- Right side - Image -->
-          <div style="text-align: center;">
+          <div class="features-image">
             <img 
               src="images/Easy-Read.png" 
               alt="Easy Read Feature Interface"
-              style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);"
             />
           </div>
         </div>
       </div>
-      
-      <!-- Add responsive styles -->
-      <style>
-        @media (max-width: 768px) {
-          .additional-features .container > div:first-of-type {
-            grid-template-columns: 1fr !important;
-            gap: 40px !important;
-          }
-        }
-      </style>
     </section>
 
     <!-- Comparison Section -->
     <section class="comparison">
       <div class="container">
         <h2 class="section-title">Feature Comparison</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Features</th>
-              <th>Free Version</th>
-              <th>Pro Version <del>$79</del> <strong>$49</strong></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Keystroke Logging</td>
-              <td class="check">✓</td>
-              <td class="check">✓</td>
-            </tr>
-            <tr>
-              <td>Internet Monitoring</td>
-              <td class="check">✓</td>
-              <td class="check">✓</td>
-            </tr>
-            <tr>
-              <td>Application Monitoring</td>
-              <td class="x">✓</td>
-              <td class="check">✓</td>
-            </tr>
-            <tr>
-              <td>Clipboard Monitoring</td>
-              <td class="x">✓</td>
-              <td class="check">✓</td>
-            </tr>
-            <tr>
-              <td>Invisible Mode</td>
-              <td class="check">✓</td>
-              <td class="check">✓</td>
-            </tr>
-            <tr>
-              <td>Auto Uninstall</td>
-              <td class="check">✓</td>
-              <td class="check">✓</td>
-            </tr>
-            <tr>
-              <td>Schedule Monitoring</td>
-              <td class="x">✓</td>
-              <td class="check">✓</td>
-            </tr>
-            <tr>
-              <td>Email & FTP Delivery</td>
-              <td class="x">✗</td>
-              <td class="check">✓</td>
-            </tr>
-            <tr>
-              <td>Screenshot Capture</td>
-              <td class="x">✗</td>
-              <td class="check">✓</td>
-            </tr>
-             <tr>
-              <td>Premium Tech Support</td>
-              <td class="x">✗</td>
-              <td class="check">✓</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Features</th>
+                <th>Free Version</th>
+                <th>Pro Version <del>$79</del> <strong>$49</strong></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Keystroke Logging</td>
+                <td class="check">✓</td>
+                <td class="check">✓</td>
+              </tr>
+              <tr>
+                <td>Internet Monitoring</td>
+                <td class="check">✓</td>
+                <td class="check">✓</td>
+              </tr>
+              <tr>
+                <td>Application Monitoring</td>
+                <td class="x">✓</td>
+                <td class="check">✓</td>
+              </tr>
+              <tr>
+                <td>Clipboard Monitoring</td>
+                <td class="x">✓</td>
+                <td class="check">✓</td>
+              </tr>
+              <tr>
+                <td>Invisible Mode</td>
+                <td class="check">✓</td>
+                <td class="check">✓</td>
+              </tr>
+              <tr>
+                <td>Auto Uninstall</td>
+                <td class="check">✓</td>
+                <td class="check">✓</td>
+              </tr>
+              <tr>
+                <td>Schedule Monitoring</td>
+                <td class="x">✓</td>
+                <td class="check">✓</td>
+              </tr>
+              <tr>
+                <td>Email & FTP Delivery</td>
+                <td class="x">✗</td>
+                <td class="check">✓</td>
+              </tr>
+              <tr>
+                <td>Screenshot Capture</td>
+                <td class="x">✗</td>
+                <td class="check">✓</td>
+              </tr>
+               <tr>
+                <td>Premium Tech Support</td>
+                <td class="x">✗</td>
+                <td class="check">✓</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
